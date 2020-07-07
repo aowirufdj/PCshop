@@ -1,0 +1,56 @@
+$active: #FF3D3D;
+//$boxShadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+//0 3px 6px 0 rgba(0,0,0,.1)
+$boxShadow: 0px 3px 5px #9C9C9C;
+$lightBorderColor: #eee;
+$themeColor: #F9CD35;
+$greyBack: rgba(1,1,1,0.4);
+$skbg:#fbfbfb;
+$titlefontsize:16px;
+$headFontSize: 20px;
+$borderColor: #bbb;
+@mixin initWrap{
+  width: 1200px;
+  margin: 0 auto;
+}
+@mixin head{
+  padding-top: 24px;
+  text-align: left;
+  font-size: 18px;
+  color: #333;
+  padding-bottom: 10px;
+}
+@mixin headbb{
+  margin-top: 24px;
+  text-align: left;
+  font-size: 18px;
+  color: #333;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+@mixin hover{
+  color: $active;
+}
+@mixin hotAndGood{
+  font-size: 22px;
+  margin: 18px 0;
+}
+@mixin borderTop{
+  border-top: 1px solid #bbb;
+}
+@mixin content{
+
+}
+@mixin ellipse{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+@mixin twoEllis{
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+

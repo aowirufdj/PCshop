@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="google-signin-client_id" content="712569306382-0tpbbbukuiqqdnnj1u3dlifq4vjant3b.apps.googleusercontent.com">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app">
+      <!-- shell -->
+    </div>
+
+    <!-- built files will be auto injected -->
+    <script src="<%= BASE_URL %>sha256.min.js"></script>
+    <script>
+      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      // Tawk_API.visitor = {
+      //   name  : 'Name',
+      //   email : 'email@email.com'
+      // };
+      //     'name'  : user.member_nickname,
+      //     'email' : user.member_email,
+      //     'hash'  : '4564541218',
+      var user = {};
+      if (getCookie('user')) {
+        user = JSON.parse(getCookie('user'));
+      }
+      var name = user.google_name||user.facebook_name||user.member_nickname ||user.member_phone|| '',
+        email = user.google_gmail||user.facebook_email||user.member_email||'';
+      var hash = sha256.hmac(email,'3bc0b6fafb304c7f390d854087f5eb9c1edd41cb');
+      console.log(hash);
+      console.log(name);
+      console.log(email);
+      Tawk_API.onLoad = function(){
+        Tawk_API.setAttributes({
+          'name':name,
+          'email': email,
+          'hash':hash,
+        }, function (error) {});
+      };
+      function getCookie(NameOfCookie) {
+        if (document.cookie.length > 0) {
+          begin = document.cookie.indexOf(NameOfCookie + "=");
+          if (begin !== -1) {
+            begin += NameOfCookie.length + 1;
+            end = document.cookie.indexOf(";", begin);
+            if (end === -1) end = document.cookie.length;
+            return unescape(document.cookie.substring(begin, end));
+          }
+        }
+        return null;
+      }
+    </script>
+  </body>
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
+</html>

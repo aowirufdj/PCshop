@@ -1,0 +1,23 @@
+module.exports = {
+  plugins: [
+    ['import', {
+      libraryName: 'vant',
+      libraryDirectory: 'es',
+      style: true
+    }, 'vant']
+  ],
+  presets: [
+    '@vue/cli-plugin-babel/preset',
+  ]
+}
+
+
+// presets: [
+//   '@vue/app',
+//   [
+//     '@babel/preset-env',
+//     {
+//       useBuiltIns: 'entry'
+//     }
+//   ]
+// ]
